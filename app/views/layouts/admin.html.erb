@@ -21,16 +21,18 @@
         <div class="">
           <nav>
             <ul class="nav navbar-nav navbar-right">
-              <% if customer_signed_in? %>
-                <li><span>ようこそ、<%= current_customer.name%>さん！</span></li>
-                <li>
-                  <%= link_to "マイページ", "#", class: "btn btn-outline-secondary", type: "button" %>
-                </li>
+              <% if admin_signed_in? %>
                 <li>
                   <%= link_to "商品一覧", "#", class: "btn btn-outline-secondary", type: "button" %>
                 </li>
                 <li>
-                  <%= link_to "カート", "#", class: "btn btn-outline-secondary", type: "button" %>
+                  <%= link_to "会員一覧", "#", class: "btn btn-outline-secondary", type: "button" %>
+                </li>
+                <li>
+                  <%= link_to "注文一覧", "#", class: "btn btn-outline-secondary", type: "button" %>
+                </li>
+                <li>
+                  <%= link_to "ジャンル一覧", "#", class: "btn btn-outline-secondary", type: "button" %>
                 </li>
                 <li>
                   <%= link_to "ログアウト", "#", method: :delete, class: "btn btn-outline-secondary", type: "button" %>
