@@ -5,13 +5,13 @@
 
 　　　<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   　　　　<div class="field form-group col-xs-8">
-         <%= f.label :"メールアドレス", class: "col-sm-4 control-label" %>
-         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-sm-8 form-control-static" %>
+         <%= f.label :"メールアドレス", class: "col-sm-4" %>
+         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-sm-8" %>
         </div>
 
         <div class="field form-group col-xs-8">
          <%= f.label :パスワード, class: "col-sm-4 control-label" %>
-         <%= f.password_field :password, autocomplete: "current-password", class: "col-sm-8 form-control-static" %>
+         <%= f.password_field :password, autocomplete: "current-password", class: "col-sm-8" %>
         </div>
 
         <div class="field form-group col-xs-6">
