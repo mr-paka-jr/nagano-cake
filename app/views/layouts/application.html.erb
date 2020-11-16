@@ -24,29 +24,29 @@
               <% if customer_signed_in? %>
                 <li><span>ようこそ、<%= current_customer.name%>さん！</span></li>
                 <li>
-                  <%= link_to "マイページ", "#", class: "btn btn-outline-secondary", type: "button" %>
+                  <%= link_to "マイページ", "#", class: "btn btn-outline-secondary" %>
                 </li>
                 <li>
-                  <%= link_to "商品一覧", "#", class: "btn btn-outline-secondary", type: "button" %>
+                  <%= link_to "商品一覧", "#", class: "btn btn-outline-secondary" %>
                 </li>
                 <li>
-                  <%= link_to "カート", "#", class: "btn btn-outline-secondary", type: "button" %>
+                  <%= link_to "カート", "#", class: "btn btn-outline-secondary" %>
                 </li>
                 <li>
-                  <%= link_to "ログアウト", "#", method: :delete, class: "btn btn-outline-secondary", type: "button" %>
+                  <%= link_to "ログアウト", "#", method: :delete, class: "btn btn-outline-secondary" %>
                 </li>
               <% else %>
                 <li>
-                  <%= link_to "About", "#", class: "btn btn-outline-secondary", type: "button" %>
+                  <%= link_to "About", "#", class: "btn btn-outline-success" %>
                 </li>
                 <li>
-                  <%= link_to "商品一覧", "#", class: "btn btn-outline-secondary", type: "button" %>
+                  <%= link_to "商品一覧", "#", class: "btn btn-outline-secondary" %>
                 </li>
                 <li>
-                  <%= link_to "新規登録", "#", class: "btn btn-outline-secondary", type: "button" %>
+                  <%= link_to "新規登録", "#", class: "btn btn-outline-secondary" %>
                 </li>
                 <li>
-                  <%= link_to "ログイン", "#", class: "btn btn-outline-secondary", type: "button" %>
+                  <%= link_to "ログイン", "#", class: "btn btn-outline-secondary" %>
                 </li>
               <% end %>
             </ul>
