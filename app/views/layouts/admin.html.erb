@@ -23,19 +23,19 @@
             <ul class="nav navbar-nav navbar-right">
               <% if admin_signed_in? %>
                 <li>
-                  <%= link_to "商品一覧", "#", class: "btn btn-outline-secondary", type: "button" %>
+                  <%= link_to "商品一覧", admins_items_path, class: "btn btn-outline-secondary", type: "button" %>
                 </li>
                 <li>
-                  <%= link_to "会員一覧", "#", class: "btn btn-outline-secondary", type: "button" %>
+                  <%= link_to "会員一覧", admins_customers_path, class: "btn btn-outline-secondary", type: "button" %>
                 </li>
                 <li>
-                  <%= link_to "注文一覧", "#", class: "btn btn-outline-secondary", type: "button" %>
+                  <%= link_to "注文一覧", admins_orders_path, class: "btn btn-outline-secondary", type: "button" %>
                 </li>
                 <li>
-                  <%= link_to "ジャンル一覧", "#", class: "btn btn-outline-secondary", type: "button" %>
+                  <%= link_to "ジャンル一覧", admins_genres_path, class: "btn btn-outline-secondary", type: "button" %>
                 </li>
                 <li>
-                  <%= link_to "ログアウト", "#", method: :delete, class: "btn btn-outline-secondary", type: "button" %>
+                  <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-outline-secondary", type: "button" %>
                 </li>
               <% else %>
                 <li>
