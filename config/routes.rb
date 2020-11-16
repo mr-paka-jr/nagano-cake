@@ -18,11 +18,10 @@ Rails.application.routes.draw do
   sessions: 'customers/sessions',
   registrations: 'customers/registrations'
 }
+  root 'customers/items#top'
+  get 'about' => 'customers/items#about'
 
-  root 'customer/items#top'
-  get 'about' => 'customer/items#about'
-
-  scope module: :customer do
+  namespace :customers do
     resources :items,only: [:index,:show]
     resources :addresses,only: [:index,:create,:edit,:update,:destroy]
     resources :cart_items,only: [:index,:update,:create,:destroy] do
@@ -32,17 +31,16 @@ Rails.application.routes.draw do
     end
     resources :orders,only: [:index,:new,:create,:show] do
       collection do
-
-        post 'comfirm'
+        post 'confirm'
         get 'thanks'
       end
     end
-    resource :customers,only: [:show] do
-  		collection do
-  	    get 'withdrawal'
-  	    patch 'change'
-  	  end
-  	end
   end
+    resources :customers,only: [:show, :edit, :update] do
+	    member do
+        get 'withdrawal'
+        patch '/' => 'customers#change'
+      end
+  	end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
