@@ -18,10 +18,10 @@ Rails.application.routes.draw do
   sessions: 'customers/sessions',
   registrations: 'customers/registrations'
 }
-  root 'customer/items#top'
+  root 'customers/items#top'
   get 'about' => 'customer/items#about'
 
-  scope module: :customers do
+  scope module: :customer do
     resources :items,only: [:index,:show]
     resources :addresses,only: [:index,:create,:edit,:update,:destroy]
     resources :cart_items,only: [:index,:update,:create,:destroy] do
