@@ -21,7 +21,6 @@ Rails.application.routes.draw do
   root 'customers/items#top'
   get 'about' => 'customers/items#about'
 
-
   namespace :customers do
     resources :items,only: [:index,:show]
     resources :addresses,only: [:index,:create,:edit,:update,:destroy]
