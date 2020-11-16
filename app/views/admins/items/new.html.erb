@@ -17,23 +17,23 @@
           </div>
           <div class="col-xs-5">
             <table>
-              <tr class="m-5">
+              <tr class="">
                 <th>商品名</th>
                 <td><%= f.text_field :name %></td>
               </tr>
-              <tr class="mb-5">
+              <tr class="">
                 <th>商品説明</th>
                 <td><%= f.text_area :introduction %></td>
               </tr>
-              <tr class="mb-5">
+              <tr class="">
                 <th>ジャンル</th>
                 <td><%= f.collection_select :genre_id, Genre.all, :id, :name, {include_blank: "--選択してください--", selected: "--選択してください--"} %></td>
               </tr>
-              <tr class="mb-5">
+              <tr class="">
                 <th>税抜価格</th>
                 <td><%= f.text_field :price %>円</td>
               </tr>
-              <tr class="mb-5">
+              <tr class="">
                 <th>販売<br>ステータス</br></th>
                 <td><%= f.select :is_active ,[['販売中',true],['販売停止中',false]], {include_blank: "--選択してください--", selected: "--選択してください--"} %></td>
               </tr>
