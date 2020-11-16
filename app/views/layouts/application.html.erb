@@ -22,7 +22,7 @@
           <nav>
             <ul class="nav navbar-nav navbar-right">
               <% if customer_signed_in? %>
-                <li><span>ようこそ、<%= current_customer.name%>さん！</span></li>
+                <li><span>ようこそ、<%= current_customer.last_name + " " + current_customer.first_name %>さん！</span></li>
                 <li>
                   <%= link_to "マイページ", "#", class: "btn btn-outline-secondary" %>
                 </li>
