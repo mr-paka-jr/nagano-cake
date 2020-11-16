@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   root 'customer/items#top'
   get 'about' => 'customer/items#about'
 
-  scope module: :customer do
+  scope module: :customers do
     resources :items,only: [:index,:show]
     resources :addresses,only: [:index,:create,:edit,:update,:destroy]
     resources :cart_items,only: [:index,:update,:create,:destroy] do
