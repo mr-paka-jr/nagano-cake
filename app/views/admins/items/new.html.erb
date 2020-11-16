@@ -1,10 +1,52 @@
-<h1>admins::items new画面</h1>
-<%= form_with model: [:admins, @item], local: true do |f| %>
-<%= f.attachment_field :image %>
-<%= f.text_field :name %>
-<%= f.text_area :introduction %>
-<%= f.collection_select :genre_id, Genre.all, :id, %>
-<%= f.text_field :price %>
-<%= f.select :is_active ,[['販売中',true],['販売停止中',false]], {include_blank: "--選択してください--"}, {selected: "--選択してください--"} %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1">
+      <h3>商品新規登録</h3>
+      <% if @item.errors.any?%>
+        <h4>全ての項目を入力してください</h4>
+        <ul>
+          <% @item.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
+      <div class="row">
+        <%= form_with model: [:admins, @item], local: true do |f| %>
+          <div class="col-xs-5">
+            <%= f.attachment_field :image %>
+          </div>
+          <div class="col-xs-5 ">
+            <table>
+              <tr class="m-5">
+                <th>商品名</th>
+                <td><%= f.text_field :name %></td>
+              </tr>
+              <tr class="mb-5">
+                <th>商品説明</th>
+                <td><%= f.text_area :introduction %></td>
+              </tr>
+              <tr class="mb-5">
+                <th>ジャンル</th>
+                <td><%= f.collection_select :genre_id, Genre.all, :id, :name, {include_blank: "--選択してください--", selected: "--選択してください--"} %></td>
+              </tr>
+              <tr class="mb-5">
+                <th>税抜価格</th>
+                <td><%= f.text_field :price %>円</td>
+              </tr>
+              <tr class="mb-5">
+                <th>販売<br>ステータス</br></th>
+                <td><%= f.select :is_active ,[['販売中',true],['販売停止中',false]], {include_blank: "--選択してください--", selected: "--選択してください--"} %></td>
+              </tr>
+            </table>
+            <div class="col-xs-offset-11">
+              <%= f.submit "新規登録", class: "btn btn-primary" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <!--  attachment_image_tag post_image, :image -->
