@@ -21,32 +21,34 @@
         <div class="">
           <nav>
             <ul class="nav navbar-nav navbar-right">
-              <% if customer_signed_in? %>
-                <li><span>ようこそ、<%= current_customer.last_name + " " + current_customer.first_name %>さん！</span></li>
+              <% if admin_signed_in? %>
                 <li>
-                  <%= link_to "マイページ", "#", class: "btn btn-outline-secondary" %>
+                  <%= link_to "商品一覧", "#", class: "btn btn-outline-secondary", type: "button" %>
                 </li>
                 <li>
-                  <%= link_to "商品一覧", "#", class: "btn btn-outline-secondary" %>
+                  <%= link_to "会員一覧", "#", class: "btn btn-outline-secondary", type: "button" %>
                 </li>
                 <li>
-                  <%= link_to "カート", "#", class: "btn btn-outline-secondary" %>
+                  <%= link_to "注文一覧", "#", class: "btn btn-outline-secondary", type: "button" %>
                 </li>
                 <li>
-                  <%= link_to "ログアウト", "#", method: :delete, class: "btn btn-outline-secondary" %>
+                  <%= link_to "ジャンル一覧", "#", class: "btn btn-outline-secondary", type: "button" %>
+                </li>
+                <li>
+                  <%= link_to "ログアウト", "#", method: :delete, class: "btn btn-outline-secondary", type: "button" %>
                 </li>
               <% else %>
                 <li>
-                  <%= link_to "About", "#", class: "btn btn-outline-success" %>
+                  <%= link_to "About", "#", class: "btn btn-outline-secondary", type: "button" %>
                 </li>
                 <li>
-                  <%= link_to "商品一覧", "#", class: "btn btn-outline-secondary" %>
+                  <%= link_to "商品一覧", "#", class: "btn btn-outline-secondary", type: "button" %>
                 </li>
                 <li>
-                  <%= link_to "新規登録", "#", class: "btn btn-outline-secondary" %>
+                  <%= link_to "新規登録", "#", class: "btn btn-outline-secondary", type: "button" %>
                 </li>
                 <li>
-                  <%= link_to "ログイン", "#", class: "btn btn-outline-secondary" %>
+                  <%= link_to "ログイン", "#", class: "btn btn-outline-secondary", type: "button" %>
                 </li>
               <% end %>
             </ul>
