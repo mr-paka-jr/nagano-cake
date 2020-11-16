@@ -1,1 +1,10 @@
 <h1>admins::items new画面</h1>
+<%= form_with model: [:admins, @item], local: true do |f| %>
+<%= f.attachment_field :image %>
+<%= f.text_field :name %>
+<%= f.text_area :introduction %>
+<%= f.collection_select :genre_id, Genre.all, :id, %>
+<%= f.text_field :price %>
+<%= f.select :is_active ,[['販売中',true],['販売停止中',false]], {include_blank: "--選択してください--"}, {selected: "--選択してください--"} %>
+<% end %>
+<!--  attachment_image_tag post_image, :image -->
