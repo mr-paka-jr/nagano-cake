@@ -18,8 +18,9 @@ Rails.application.routes.draw do
   sessions: 'customers/sessions',
   registrations: 'customers/registrations'
 }
+
   root 'customers/items#top'
-  get 'about' => 'customer/items#about'
+  get 'about' => 'customers/items#about'
 
   scope module: :customer do
     resources :items,only: [:index,:show]
@@ -31,6 +32,7 @@ Rails.application.routes.draw do
     end
     resources :orders,only: [:index,:new,:create,:show] do
       collection do
+
         post 'comfirm'
         get 'thanks'
       end
