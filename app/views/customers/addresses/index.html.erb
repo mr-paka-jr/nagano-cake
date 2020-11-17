@@ -30,6 +30,27 @@
             <th>宛名</th>
           </tr>
         </thead>
+        <% @addresses.each do |address| %>
+        <tbody>
+          <tr>
+            <td>
+              <%= address.postal_code %>
+            </td>
+            <td>
+              <%= address.address %>
+            </td>
+            <td>
+              <%= address.name %>
+            </td>
+            <td>
+                <%= link_to "編集する",edit_customers_address_path(address), class: " btn-sm btn-primary" %>
+            </td>
+            <td>
+                <%= link_to "削除する",customers_address_path(address), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: " btn-sm btn-danger destroy_book_#{address.id}" %>
+            </td>
+          </tr>
+        </tbody>
+        <% end %>
      </table>
     </div>
   </div>
