@@ -15,22 +15,12 @@ class Customers::AddressesController < ApplicationController
   end
 
   def destroy
-    @address = Address.find(params[:id])
-	  @address.destroy
-    @addresses = current_customer.address
   end
 
   def edit
-    @address = Address.find(params[:id])
   end
 
   def update
-    @address = Address.find(params[:id])
-	  if @address.update(address_params)
-     redirect_to customers_addresses_path
-	  else
-	   render "edit"
-	  end
   end
 
   private
