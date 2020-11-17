@@ -2,6 +2,7 @@
   <div class="row">
     <div class="col-xs-10 col-xs-offset-1">
       <h3>商品詳細</h3>
+<<<<<<< HEAD
 
       <div class="row">
           <div class="col-xs-5">
@@ -35,6 +36,40 @@
             </div>
           </div>
         <% end %>
+=======
+      <div class="row">
+        <div class="col-xs-5">
+          <%= attachment_image_tag @item, :image, :fill, 350, 300, format: 'jpeg' %>
+        </div>
+        <div class="col-xs-5">
+          <table>
+            <tr>
+              <th>商品名</th>
+              <td><%= @item.name %></td>
+            </tr>
+            <tr>
+              <th>商品説明</th>
+              <td><%= @item.introduction %></td>
+            </tr>
+            <tr>
+              <th>ジャンル</th>
+              <td><%= @item.genre.name %></td>
+            </tr>
+            <tr style="white-space: nowrap;">
+              <th>税込価格（税抜価格）</th>
+              <!-- addTax(price)は、app/helpers/application_helper.rb にヘルパーメソッドとして定義しています-->
+              <td><%= addTax(@item.price) %>（<%= @item.price %>）円</td>
+            </tr>
+            <tr>
+              <th>販売ステータス</th>
+              <td><%= @item.is_active ? '販売中' : '販売停止中' %></td>
+            </tr>
+          </table>
+          <div class="pull-right">
+            <%= link_to "編集する", edit_admins_item_path(@item), class: "btn btn-primary" %>
+          </div>
+        </div>
+>>>>>>> 90b47ac94a1358e567d9f7cd23dc8333658f949a
       </div>
     </div>
   </div>
