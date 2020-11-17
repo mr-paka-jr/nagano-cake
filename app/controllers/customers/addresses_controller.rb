@@ -15,9 +15,11 @@ class Customers::AddressesController < ApplicationController
   end
 
   def destroy
+    
   end
 
   def edit
+    @address = Address.find(params[:id])
   end
 
   def update
