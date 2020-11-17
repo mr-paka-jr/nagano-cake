@@ -1,7 +1,7 @@
 <div class="container">
  <div class="row">
     <div class="col-xs-12">
-        <h3 class="head-line col-sm-3">配送先編集</h3>
+        <h3 class="head-line col-sm-6">配送先編集</h3>
 
         <%= form_with(model: @address, url:customers_address_path, local: true ,method: :patch) do |f| %>
 
@@ -21,7 +21,7 @@
                     <%= f.text_field :name ,class: "col-xs-4" %>
                 </div>
                 <div class="form-group col-xs-12">
-                    <%= f.submit '編集する' ,class: "col-xs-2 btn btn-primary btn-lg pull-right" %>
+                    <%= f.submit '編集する' ,class: "col-xs-2 btn btn-primary btn-sm pull-right" %>
                 </div>
             </div>
         <% end %>
