@@ -6,8 +6,11 @@ class Admins::ItemsController < Admins::BaseController
 
   def create
     @item = Item.new(item_params)
-    @item.save
-    redirect_to admins_item_path(@item)
+    if @item.save
+      redirect_to admins_item_path(@item)
+    else
+      render 'new'
+    end
   end
 
   def index
@@ -16,6 +19,20 @@ class Admins::ItemsController < Admins::BaseController
 
   def show
     @item = Item.find(params[:id])
+  end
+
+
+  def edit
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      redirect_to admins_item_path(@item)
+    else
+      render 'edit'
+    end
   end
 
   private
