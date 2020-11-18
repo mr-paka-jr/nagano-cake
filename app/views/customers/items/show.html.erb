@@ -1,2 +1,34 @@
-<h1>Customers::Items#show</h1>
-<p>Find me in app/views/customers/items/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-4 col-xs-offset-2 item-show">
+      <%= attachment_image_tag(@item, :image, format: 'jpg', size: "340x220", fallback: "no_image.jpg" ) %>
+    </div>
+
+    <div class="col-xs-6 item-show">
+        <div class="field item-name">
+          <h2><%= @item.name %></h2>
+        </div>
+        <div class="field item-introduction">
+          <%= @item.introduction %>
+        </div>
+        <div class="field item-price">
+          <h4>¥ <%= addTax(@item.price) %>
+              <span class="tax">(税込)</span>
+          </h4>
+        </div>
+      </div>
+
+      <div class="field col-sm-6">
+        <% if @item.is_active == true %>
+            <%= form_for(@cart_item , url: customers_cart_items_path, method: :post) do |f| %>
+              <%= f.hidden_field :item_id, value: @item.id %>
+              <%= f.select :amount, options_for_select((1..10).to_a), include_blank: "個数選択" %>
+              <%= f.submit "カートに入れる", class: "glyphicon glyphicon-shopping-cart btn btn-primary" %>
+            <% end %>
+        <% else @item.is_active == false %>
+          <h3>販売停止中</h3>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
