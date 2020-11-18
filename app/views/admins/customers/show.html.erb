@@ -5,7 +5,14 @@
       <tbody>
         <tr>
           <th style="border: none; width:150px;">会員ID</th>
-          <td style="border: none;"><%= @customer.id %></td>
+          <td style="border: none;">
+            <%= @customer.id %>
+            <% if @customer.is_deleted == false %>
+              <span class="label label-primary">有効会員</span>
+            <% else %>
+              <span class="label label-danger">退会済み</span>
+            <% end %>
+          </td>
         </tr>
         <tr>
           <th style="border: none;">氏名</th>

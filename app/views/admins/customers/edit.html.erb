@@ -1,51 +1,45 @@
 <div class="container">
   <div class="row">
     <h4 style="margin: 0 0 30px 30px;"><%= @customer.last_name + @customer.first_name %>さんの会員詳細</h4>
-    <table class="table" style="table-layout:fixed;">
       <%= form_with model: [:admins, @customer], local: true do |f| %>
-      <tbody>
-        <tr class="form-group">
-          <th style="border: none; width:150px;">会員ID</th>
-          <td style="border: none; width:170px;"><%= @customer.id %></td>
-        </tr>
-        <tr class="form-group">
-          <th style="border: none;">氏名</th>
-          <td style="border: none;"><%= f.text_field :last_name, class: "form_control" %></td>
-          <td style="border: none;"><%= f.text_field :first_name, class: "form_control" %></td>
-        </tr>
-        <tr class="form-group">
-          <th style="border: none;">フリガナ</th>
-          <td style="border: none;"><%= f.text_field :last_name_kana, class: "form_control" %></td>
-          <td style="border: none;"><%= f.text_field :first_name_kana, class: "form_control" %></td>
-        </tr>
-        <tr class="form-group">
-          <th style="border: none;">郵便番号</th>
-          <td style="border: none;"><%= f.text_field :postal_code %></td>
-        </tr>
-        <tr class="form-group">
-          <th style="border: none;">住所</th>
-          <td style="border: none; white-space: nowrap;"><%= f.text_field :address %></td>
-        </tr>
-        <tr class="form-group">
-          <th style="border: none;">電話番号</th>
-          <td style="border: none;"><%= f.text_field :telephone_number %></td>
-        </tr>
-        <tr class="form-group">
-          <th style="border: none;">メールアドレス</th>
-          <td style="border: none;"><%= f.email_field :email %></td>
-        </tr>
-        <tr class="form-group">
-          <th style="border: none;">会員ステータス</th>
-          <td style="border: none;">
-            <%= f.radio_button :is_deleted, :false, checked: false %>
-            <%= f.label "有効" %>
-            <%= f.radio_button :is_deleted, :true, checked: true %>
-            <%= f.label "退会済み" %>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-      <%= f.submit "変更を保存する", class: "btn btn-primary", style: "margin-left: 10px;" %>
+        <div class="form-group">
+          <%= f.label "会員ID", class: "col-xs-2" %>
+          <%= @customer.id %>
+        </div>
+        <div class="form-group">
+          <%= f.label "氏名", class: "col-xs-2" %>
+          <%= f.text_field :last_name, class: "form_control " %>
+          <%= f.text_field :first_name, class: "form_control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label "フリガナ", class: "col-xs-2" %>
+          <%= f.text_field :last_name_kana, class: "form_control" %>
+          <%= f.text_field :first_name_kana, class: "form_control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label "郵便番号", class: "col-xs-2" %>
+          <%= f.text_field :postal_code, class: "form_control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label "住所", class: "col-xs-2" %>
+          <%= f.text_field :address, size: 50, class: "form_control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label "電話番号", class: "col-xs-2" %>
+          <%= f.text_field :telephone_number, class: "form_control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label "メールアドレス", class: "col-xs-2" %>
+          <%= f.email_field :email, class: "form_control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label "会員ステータス", class: "col-xs-2" %>
+          <%= f.radio_button :is_deleted, :false %>
+          <%= f.label :is_deleted, "有効", value: false %>
+          <%= f.radio_button :is_deleted, :true %>
+          <%= f.label :is_deleted, "退会済み", value: true %>
+        </div>
+          <%= f.submit "変更を保存する", class: "btn btn-primary", style: "margin-left: 10px;" %>
       <% end %>
   </div>
 </div>
