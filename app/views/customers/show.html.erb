@@ -43,6 +43,7 @@
                 <tr>
                     <td class="table-active">メールアドレス</td>
                     <td><%= @customer.email %></td>
+                    <td><%= @customer.is_deleted %></td>
                 </tr>
             </table><br>
 
@@ -52,7 +53,7 @@
             </div><br>
             <div class="text-left">
             <span><strong>注文履歴</strong></span>
-            <%= link_to "一覧を見る", customer_path, class: "btn btn-primary" %>
+            <%= link_to "一覧を見る", customers_orders_path, class: "btn btn-primary" %>
             </div>
 
         </div>
