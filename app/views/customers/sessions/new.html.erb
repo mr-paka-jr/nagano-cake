@@ -3,6 +3,8 @@
   <div class="col-xs-offset-1 col-xs-11">
     <h4 class="head-line col-sm-4">会員の方はこちらからログイン</h4>
 
+    <h3 class="text-danger"><%= flash[:error] %></h3>
+    
 　　　<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   　　　　<div class="field form-group col-xs-8">
          <%= f.label :"メールアドレス", class: "col-sm-4 control-label" %>
