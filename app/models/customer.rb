@@ -10,6 +10,7 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :addresses, dependent: :destroy
+  has_many :cart_items, dependent: :destroy
 
   validates :first_name, :last_name, :first_name_kana, :last_name_kana,
             :address, presence: true
