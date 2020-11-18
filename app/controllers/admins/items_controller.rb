@@ -21,6 +21,7 @@ class Admins::ItemsController < Admins::BaseController
     @item = Item.find(params[:id])
   end
 
+
   def edit
     @item = Item.find(params[:id])
   end
