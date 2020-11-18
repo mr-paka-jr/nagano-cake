@@ -1,7 +1,15 @@
 class Customer < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-
+  def customer_total_price
+    sum = 0
+    total_record = self.cart_items
+  end
+  
+  def total_price_commission
+    self.user_total_price + 800
+  end
+  
   def active_for_authentication?
     super && (self.is_deleted == false)
   end

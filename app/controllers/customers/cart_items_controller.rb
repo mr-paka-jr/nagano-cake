@@ -2,6 +2,7 @@ class Customers::CartItemsController < ApplicationController
 
   def index
     @cart_items = current_customer.cart_items
+    # @cart_item = CartItem.find(params[:id])
   end
 
   def create
@@ -10,13 +11,11 @@ class Customers::CartItemsController < ApplicationController
     @current_cart_item = CartItem.find_by(item_id: @cart_item.item_id, customer_id: @cart_item.customer_id)
     if @cart_item.save
       redirect_to "/customers/cart_items", notice: "商品が追加されました"
-    else
-      redirect_to "/customers/cart_items", notice: "商品を追加できませんでした"
     end
   end
 
   def update
-    @cart_item = Cart.find(params[:id])
+    @cart_item = CartItem.find(params[:id])
     @cart_item.update(cart_item_params)
     redirect_to "/customers/cart_items"
   end
