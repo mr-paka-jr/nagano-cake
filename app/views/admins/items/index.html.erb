@@ -16,7 +16,6 @@
         <tbody>
           <% @items.each do |item| %>
           <tr>
-            <td><% item.id %></td>
             <td><%= item.id %></td>
             <td>
               <%= link_to admins_item_path(item) do%>
@@ -35,5 +34,4 @@
       </div>
     </div>
   </div>
-</div>
 </div>
