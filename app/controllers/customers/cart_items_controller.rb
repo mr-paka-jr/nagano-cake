@@ -2,7 +2,7 @@ class Customers::CartItemsController < ApplicationController
 
   def index
     @cart_items = current_customer.cart_items
-    subtotal = [] 
+    subtotal = []
     @cart_items.all.each do |cart_item|
       subtotal << (cart_item.item.price * cart_item.amount)
     end
