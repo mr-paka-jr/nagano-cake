@@ -10,5 +10,9 @@ class Admins::OrdersController < Admins::BaseController
       @orders = Order.page(params[:page]).per(10)
     end
   end
-
+  
+  def show
+    @order = Order.find(params[:id])
+    @order_details = @order.order_details
+  end
 end
