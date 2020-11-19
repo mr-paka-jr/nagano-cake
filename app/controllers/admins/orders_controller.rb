@@ -1,5 +1,5 @@
 class Admins::OrdersController < Admins::BaseController
-  
+
   def index
     path = Rails.application.routes.recognize_path(request.referer)
     if path[:controller] == "admins/customers" && path[:action] == "top"
@@ -10,5 +10,5 @@ class Admins::OrdersController < Admins::BaseController
       @orders = Order.page(params[:page]).per(10)
     end
   end
-  
+
 end
