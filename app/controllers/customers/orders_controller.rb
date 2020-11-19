@@ -7,6 +7,8 @@ class Customers::OrdersController < ApplicationController
   end
   
   def new
+    @order = Order.new
+  	@addresses = Address.where(customer: current_customer)
   end
   
   def confirm
@@ -16,6 +18,12 @@ class Customers::OrdersController < ApplicationController
   end 
   
   def thanks
+  end
+  
+  private
+
+  def order_params
+    params.require(:order).permit(:postal_code, :address, :name, :payment_method, :total_payment)
   end
 
 end
