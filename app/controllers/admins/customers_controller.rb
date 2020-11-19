@@ -1,4 +1,7 @@
 class Admins::CustomersController < Admins::BaseController
+  
+  def top
+    
 
   def index
     @customers = Customer.page(params[:id]).per(10)
