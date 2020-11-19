@@ -12,7 +12,7 @@
               <div class="items-container col-sm-3">
                 <%= link_to customers_item_path(item.id), class: "btn-link", :style=>"color:#0099FF;" do %>
               <div id="img_field" class="items">
-                <%= attachment_image_tag(item, :image,format: 'jrg', size: "150x120", fallback: "no_image.jpg") %>
+                <%= attachment_image_tag(item, :image,format: 'jpg', size: "150x120", fallback: "no_image.jpg") %>
               </div>
                 <p class="items-name">
                   <%= item.name %>

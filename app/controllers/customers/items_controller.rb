@@ -15,6 +15,9 @@ class Customers::ItemsController < ApplicationController
     @items = Item.all
     @item = Item.find(params[:id])
     @cart_item = CartItem.new
+    if @cart_item.save
+      redirect_to "/customers/cart_items", notice: "商品が追加されました"
+    end
   end
 
   private
