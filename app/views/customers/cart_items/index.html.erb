@@ -27,7 +27,7 @@
                             <%=  attachment_image_tag(cart_item.item, :image, format: 'jpg', size: "40x30", fallback: "no_image.jpg" ) %>
                             <strong><%= cart_item.item.name%></strong>
                         </td>
-                        <td><strong><%= cart_item.item.price %></strong></td>
+                        <td><strong><%= addTax(cart_item.item.price) %></strong></td>
                         <td>
                             <%= form_for cart_item, url: update_customers_cart_item_path(cart_item) do |f|%>
                                 <%= f.number_field :amount,min:1,max:999,step:1 %>
@@ -35,7 +35,7 @@
                             <% end %>
                         </td>
                         <td>
-                            <strong><%= "#小計" %></strong>
+                            <strong><%= addTax(cart_item.item.price * cart_item.amount) %></strong>
                         </td>
                         <td class= "text-center">
                             <%= link_to "削除する", customers_cart_item_path(cart_item.id), method: :delete, class: "btn btn-danger" %>
@@ -56,7 +56,7 @@
             <table class = "table table-bordered">
                 <tr>
                     <td><strong>合計金額</strong></td>
-                    <td><strong><%= "" %></strong></td>
+                    <td><strong><%= addTax(@total_price) %></strong></td>
                 </tr>
             </table>
         </div>
