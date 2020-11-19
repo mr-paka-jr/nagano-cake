@@ -1,5 +1,9 @@
 class Admins::CustomersController < Admins::BaseController
 
+  def top
+    @orders = Order.where(created_at: Date.today)
+  end
+
   def index
     @customers = Customer.page(params[:id]).per(10)
   end
