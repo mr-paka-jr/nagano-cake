@@ -41,7 +41,7 @@
         <thead>
           <tr>
             <th>商品名</th>
-            <th>単価</th>
+            <th>単価(税込)</th>
             <th>数量</th>
             <th>小計</th>
             <th>製作ステータス</th>
@@ -54,7 +54,7 @@
             <td><%= order_detail.item.name %></td>
             <td><%= order_detail.price %></td>
             <td><%= order_detail.amount %></td>
-            <td>?</td>
+            <td><%= order_detail.price * order_detail.amount %></td>
             <%= form_with model: [:admins, order_detail], local: true do |f| %>
             <td>
               <%= f.select :making_status, OrderDetail.making_statuses.keys.map{|k| [k,k]} %>
@@ -71,7 +71,7 @@
 
     <div class="col-xs-4" style="margin-top: 170px;">
         <strong class="col-sm-7">商品合計</strong>
-        <span class="col-sm-5">????円</span>
+        <span class="col-sm-5"><%= @total_price %>円</span>
         <strong class="col-sm-7">送料</strong>
         <span class="col-sm-5"><%= @order.shipping_cost %>円</span>
         <strong class="col-sm-7">請求金額合計</strong>

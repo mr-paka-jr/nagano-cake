@@ -14,8 +14,13 @@ class Admins::OrdersController < Admins::BaseController
   def show
     @order = Order.find(params[:id])
     @order_details = @order.order_details
+    subtotal = []
+    @order_details.all.each do |order_detail|
+      subtotal << (order_detail.price * order_detail.amount)
+    end
+    @total_price = subtotal.sum
   end
-  
+
   def update
     order = Order.find(params[:id])
     order.update(order_params)
@@ -23,11 +28,11 @@ class Admins::OrdersController < Admins::BaseController
     when "入金確認"
       order.order_details.update(making_status: "製作待ち")
     end
-    redirect_to admins_order_path(order)     
+    redirect_to admins_order_path(order)
   end
-  
+
   private
-  
+
   def order_params
     params.require(:order).permit(:status)
   end
