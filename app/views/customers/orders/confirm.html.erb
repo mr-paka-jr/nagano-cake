@@ -36,11 +36,11 @@
       <table class="table table-bordered">
           <tr>
             <th class="info">送料</th>
-            <td class="text-right col-xs-5">¥</td>
+            <td class="text-right col-xs-5">¥<%= @order.shipping_cost %></td>
           </tr>
           <tr>
             <th class="info">商品合計</th>
-            <td class="text-right">¥</td>
+            <td class="text-right">¥<%= addTax(@total_price) %></td>
           </tr>
           <tr>
             <th class="info">請求金額</th>
@@ -59,7 +59,7 @@
         <tr>
           <th  class="info">お届け先</th>
           <td class="text-left">
-            <%= "#{@order.postal_code} #{@order.address} 　#{@order.name}" %>
+            <%= "#{@order.postal_code} #{@order.address} #{@order.name}" %>
           </td>
         </tr>
       </table>
