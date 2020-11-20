@@ -15,4 +15,5 @@ class Admins::OrdersController < Admins::BaseController
     @order = Order.find(params[:id])
     @order_details = @order.order_details
   end
+
 end
