@@ -14,6 +14,16 @@
 			<h3 class="recommended">オススメ商品</h3>
 		
 			<div class="col-xs-9">
+				<% @items.first(5). each do |item| %>
+				 <%= link_to customers_item_path(item.id), class: "btn-link", :style=>"color:#0099FF;" do %>
+        <div id="img_field" class="item">
+         <%= attachment_image_tag(item, :image, size: "180x130", fallback: "no_image.jpg") %>
+        </div>
+        <p class="items-name">
+         <%= item.name %>
+        </p>
+       <% end %>
+       <% end %>
 			<%= link_to "もっと見る>", customers_items_path, class: "btn-link  pull-right" %>
 			</div>
 		</div>
