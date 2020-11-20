@@ -41,7 +41,8 @@ class Customers::OrdersController < ApplicationController
 
   def create
     tax = 1.1
-    @order = Order.new(order_params)
+    @order = current_customer.orders.new(order_details_params)
+    @order.save
     @order.customer_id = current_customer.id
     @cart_items = current_customer.cart_items
     @cart_items.each do |cart_item|
@@ -60,6 +61,9 @@ class Customers::OrdersController < ApplicationController
   end
 
   private
+  def order_details_params
+     params.require(:order).permit(:postal_code, :address, :name, :payment_method, :total_payment, :shipping_cost)
+  end
 
   def order_params
     params.require(:order).permit(:postal_code, :address, :name, :payment_method, :total_payment)
