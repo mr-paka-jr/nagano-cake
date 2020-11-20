@@ -1,9 +1,12 @@
 class Customers::OrdersController < ApplicationController
 
   def index
+    @orders = current_customer.orders
   end
 
   def show
+    @order = Order.find(params[:id])
+    @order_details = @order.order_details.all
   end
 
   def new
@@ -71,7 +74,7 @@ class Customers::OrdersController < ApplicationController
 
   private
   def order_details_params
-     params.require(:order).permit(:postal_code, :address, :name, :payment_method, :total_payment, :shipping_cost)
+     params.require(:order).permit(:customer_id, :postal_code, :address, :name, :payment_method, :total_payment, :shipping_cost)
   end
 
   def order_params
