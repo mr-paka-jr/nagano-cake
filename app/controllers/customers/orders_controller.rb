@@ -13,6 +13,13 @@ class Customers::OrdersController < ApplicationController
 
   def confirm
      @cart_items = current_customer.cart_items
+     subtotal = []
+     @cart_items.all.each do |cart_item|
+      subtotal << (cart_item.item.price * cart_item.amount)
+    end
+     @total_price = subtotal.sum
+     #@shipping_cost = 800
+     #@total_payment = (@total_price + @shipping_cost)
      @order = Order.new(
       customer: current_customer,
       payment_method: params[:order][:payment_method]
@@ -44,7 +51,6 @@ class Customers::OrdersController < ApplicationController
     @order = Order.new(order_details_params)
     #合計金額仮で入れてます。
     @order.total_payment = 2000
-    @order.shipping_cost = 800
     @order.customer_id = current_customer.id
     @order.save
     @cart_items = current_customer.cart_items
