@@ -21,8 +21,6 @@ class Customers::OrdersController < ApplicationController
       subtotal << (cart_item.item.price * cart_item.amount)
     end
      @total_price = subtotal.sum
-     #@shipping_cost = 800
-     #@total_payment = (@total_price + @shipping_cost)
      @order = Order.new(
       customer: current_customer,
       payment_method: params[:order][:payment_method]
