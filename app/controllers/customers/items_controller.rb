@@ -4,6 +4,8 @@ class Customers::ItemsController < ApplicationController
   end
 
   def top
+    @items = Item.all.order(created_at: :asc)
+    @genres = Genre.all
   end
 
   def index
@@ -13,6 +15,7 @@ class Customers::ItemsController < ApplicationController
 
   def show
     @items = Item.all
+    @genres = Genre.all
     @item = Item.find(params[:id])
     @cart_item = CartItem.new
     if @cart_item.save

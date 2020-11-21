@@ -1,9 +1,12 @@
 class Customers::OrdersController < ApplicationController
 
   def index
+    @orders = current_customer.orders
   end
 
   def show
+    @order = Order.find(params[:id])
+    @order_details = @order.order_details.all
   end
 
   def new
@@ -13,6 +16,11 @@ class Customers::OrdersController < ApplicationController
 
   def confirm
      @cart_items = current_customer.cart_items
+     subtotal = []
+     @cart_items.all.each do |cart_item|
+      subtotal << (cart_item.item.price * cart_item.amount)
+    end
+     @total_price = subtotal.sum
      @order = Order.new(
       customer: current_customer,
       payment_method: params[:order][:payment_method]
@@ -41,9 +49,11 @@ class Customers::OrdersController < ApplicationController
 
   def create
     tax = 1.1
-    @order = current_customer.orders.new(order_details_params)
-    @order.save
+    @order = Order.new(order_details_params)
+    #合計金額仮で入れてます。
+    @order.total_payment = 2000
     @order.customer_id = current_customer.id
+    @order.save
     @cart_items = current_customer.cart_items
     @cart_items.each do |cart_item|
       order_detail = OrderDetail.new
@@ -52,7 +62,7 @@ class Customers::OrdersController < ApplicationController
       order_detail.price = (cart_item.item.price * tax)
       order_detail.amount = cart_item.amount
       order_detail.save
-      end
+    end
     @cart_items.destroy_all
     redirect_to thanks_customers_orders_path
   end
@@ -62,7 +72,7 @@ class Customers::OrdersController < ApplicationController
 
   private
   def order_details_params
-     params.require(:order).permit(:postal_code, :address, :name, :payment_method, :total_payment, :shipping_cost)
+     params.require(:order).permit(:customer_id, :postal_code, :address, :name, :payment_method, :total_payment, :shipping_cost)
   end
 
   def order_params
