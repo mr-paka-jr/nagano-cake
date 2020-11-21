@@ -10,6 +10,7 @@ class Order < ApplicationRecord
 		order_details.each do |order_detail|
 			total += order_detail.amount
 		end
+		total
 	end
 
 end
