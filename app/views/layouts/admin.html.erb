@@ -39,19 +39,7 @@
                 <li>
                   <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-outline-secondary", type: "button" %>
                 </li>
-              <% else %>
-                <li>
-                  <%= link_to "About", "#", class: "btn btn-outline-secondary", type: "button" %>
-                </li>
-                <li>
-                  <%= link_to "商品一覧", "#", class: "btn btn-outline-secondary", type: "button" %>
-                </li>
-                <li>
-                  <%= link_to "新規登録", "#", class: "btn btn-outline-secondary", type: "button" %>
-                </li>
-                <li>
-                  <%= link_to "ログイン", "#", class: "btn btn-outline-secondary", type: "button" %>
-                </li>
+                <div class="search"><%= render 'layouts/search' %></div>
               <% end %>
             </ul>
           </nav>

@@ -68,14 +68,23 @@
         </tbody>
       </table>
     </div>
-
-    <div class="col-xs-4" style="margin-top: 170px;">
-        <strong class="col-sm-7">商品合計</strong>
-        <span class="col-sm-5"><%= @total_price %>円</span>
-        <strong class="col-sm-7">送料</strong>
-        <span class="col-sm-5"><%= @order.shipping_cost %>円</span>
-        <strong class="col-sm-7">請求金額合計</strong>
-        <span class="col-sm-5"><%= @order.total_payment %>円</span>
+    <div class="col-xs-4">
+      <table class="table table-bordered" style="margin-top: 120px;">
+        <tbody>
+          <tr>
+            <th>商品合計</th>
+            <td>￥<%= @total_price %></td>
+          </tr>
+          <tr>
+            <th>送料</th>
+            <td>￥<%= @total_price %></td>
+          </tr>
+          <tr>
+              <th>請求金額合計</th>
+              <td>￥<%= @order.total_payment %></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>

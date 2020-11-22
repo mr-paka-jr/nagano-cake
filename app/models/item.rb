@@ -14,4 +14,13 @@ class Item < ApplicationRecord
   validates :price, presence: true, numericality: { only_integer: true }
   validates :is_active, inclusion: { in: [true, false] }
 
+  def Item.search(search, which_option)
+    if which_option == "2"
+      Item.where([
+        'name LIKE ? OR introduction LIKE ?',
+        "%#{search}%", "%#{search}%"])
+    else
+      Item.all
+    end
+  end
 end
