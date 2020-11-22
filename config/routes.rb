@@ -12,6 +12,7 @@ Rails.application.routes.draw do
         resource :order_detail,only: [:update]
       end
     end
+    get 'search' => 'search#search'
   end
 
   devise_for :customers, controllers: {
