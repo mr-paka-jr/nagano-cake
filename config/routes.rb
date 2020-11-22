@@ -44,7 +44,7 @@ Rails.application.routes.draw do
     resources :customers,only: [:show, :edit, :update] do
 	    member do
         get 'withdrawal'
-        patch '/' => 'customers#change'
+        patch 'withdrawal' => 'customers#change', as: "change"
       end
   	end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
