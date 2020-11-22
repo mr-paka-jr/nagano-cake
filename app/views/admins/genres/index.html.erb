@@ -1,8 +1,8 @@
-     
+
 <div class="container">
     <div class="row">
         <div class="col-lg-5">
-            
+
             <div class="text-center p-3 mb-2 bg-secondary text-black"><h4><strong>ジャンル一覧・追加</strong></h4></div><br>
             <div class="text-center create_genre">
                 <%= form_with model: @genre, url: "/admins/genres", local:true do |f| %>
@@ -15,8 +15,8 @@
                     <%= f.submit '追加', class: "btn btn-info" %>
                 <% end %>
             </div><br>
-            
-            
+
+
             <table class="table table-default genres_table">
                 <thead>
                     <tr>

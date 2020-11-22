@@ -1,0 +1,32 @@
+      <% if customers.empty? %>
+        <h5 style="margin-top: 50px;">該当する会員はいません</h5>
+      <% else %>
+      <h4>会員一覧</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>会員ID</th>
+            <th>氏名</th>
+            <th>メールアドレス</th>
+            <th>ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% customers.each do |customer| %>
+          <tr>
+            <td><%= customer.id %></td>
+            <td>
+              <%= link_to admins_customer_path(customer) do%>
+                <%= customer.last_name + customer.first_name %>
+              <% end %>
+            </td>
+            <td><%= customer.email %></td>
+            <td><%= customer.is_deleted ? '退会済み' : '有効' %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <div class="text-center">
+        <%= paginate customers %>
+      </div>
+      <% end %>
