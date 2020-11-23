@@ -48,13 +48,17 @@ class Customers::OrdersController < ApplicationController
   end
 
   def create
-    tax = 1.1
-    @order = Order.new(order_details_params)
-    #合計金額仮で入れてます。
-    @order.total_payment = 2000
-    @order.customer_id = current_customer.id
-    @order.save
+    tax = 1.08
     @cart_items = current_customer.cart_items
+    subtotal = []
+    @cart_items.all.each do |cart_item|
+      subtotal << (cart_item.item.price * cart_item.amount)
+    end
+    @total_price = subtotal.sum
+    @order = Order.new(order_details_params)
+    @order.customer_id = current_customer.id
+    @order.total_payment = tax * (@total_price) + 800
+    @order.save
     @cart_items.each do |cart_item|
       order_detail = OrderDetail.new
       order_detail.order_id = @order.id

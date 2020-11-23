@@ -17,4 +17,15 @@ class Customer < ApplicationRecord
   validates :postal_code, length: {is: 7}, numericality: { only_integer: true }
 
   validates :is_deleted, inclusion: { in: [true, false] }
+
+  def Customer.search(search, which_option)
+    if which_option == "1"
+      Customer.where([
+        'last_name LIKE ? OR first_name LIKE ? OR last_name_kana LIKE ? OR first_name_kana LIKE ? OR address LIKE ? OR telephone_number LIKE ?',
+        "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%"])
+    else
+      Customer.all
+    end
+  end
+
 end

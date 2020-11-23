@@ -16,7 +16,7 @@
           <tr>
             <td>
               <%= link_to admins_order_path(order) do %>
-                <%= order.created_at %>
+                <%= order.created_at.to_s(:datetime_jp) %>
               <% end %>
             </td>
             <td>
@@ -30,7 +30,7 @@
       </table>
       <div class="text-center">
         <%= paginate @orders %>
-        
+
       </div>
     </div>
   </div>
