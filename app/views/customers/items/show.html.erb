@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-xs-3">
 			<h3>ジャンル検索</h3>
-				<% @genres. each do |genre| %>
+				<% @genres.each do |genre| %>
 				  <%= link_to genre.name,customers_items_path %>
 				<% end %>
 		</div>

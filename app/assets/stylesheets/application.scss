@@ -17,5 +17,22 @@
  @import "bootstrap";
 
  header {
-  background-color: #E6FFE9;
+  background-color: #EEEEEE;
  }
+
+.main-visual {
+  background-image: image-url('cake.jpg');
+  height: 200px;
+  width:  460px;
+  background-position: center;
+}
+
+.welcome {
+ text-align: center;
+ padding-top: 55px;
+}
+
+.top-recommended {
+ padding-top: 200px;
+ padding-left: 290px;
+}

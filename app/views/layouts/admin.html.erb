@@ -14,13 +14,8 @@
     <div class="container">
       <div class="row">
         <nav class="nav navbar-nav navbar-left">
-          <div class="">
-            <%= link_to admins_top_url do %>
-              <h1>LOGO</h1>
-            <% end %>
-          </div>
+           <%= link_to image_tag('logo.PNG',:width => "150",:height => "70", class: "pull-right"), admins_top_url %>
         </nav>
-        <div class="">
           <nav>
             <ul class="nav navbar-nav navbar-right">
               <% if admin_signed_in? %>
