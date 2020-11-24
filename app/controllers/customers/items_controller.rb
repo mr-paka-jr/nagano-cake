@@ -4,18 +4,22 @@ class Customers::ItemsController < ApplicationController
   end
 
   def top
-    @items = Item.all.order(created_at: :asc)
     @genres = Genre.where(is_active: true)
+    active_items = []
+    @genres.each do |genre|
+      active_items << genre.items.where(is_active: true)
+    end
+    @items = active_items.sum
   end
 
   def index
     @genres = Genre.where(is_active: true)
     active_items = []
     @genres.each do |genre|
-      active_items << genre.items.where(is_active: true)
+      active_items << genre.items
     end
     @active_items = active_items.sum
-    @items = Item.where(is_active: true).page(params[:page]).per(10)
+    @items = Item.page(params[:page]).per(10)
   end
 
   def show
