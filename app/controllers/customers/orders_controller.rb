@@ -34,10 +34,10 @@ class Customers::OrdersController < ApplicationController
 
     #newページのaddressでaddressesが選択されていれば
     elsif params[:order][:addresses] == "addresses"
-      ship = ShippingAddress.find(params[:order][:shipping_address_id])
-      @order.postal_code = ship.postal_code
-      @order.address     = ship.address
-      @order.name        = ship.name
+      addresses = Address.find(params[:order][:address_id])
+      @order.postal_code = addresses.postal_code
+      @order.address     = addresses.address
+      @order.name        = addresses.name
 
     #newページのaddressでnew_addressが選択されていれば
     elsif params[:order][:addresses] == "new_address"
