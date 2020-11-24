@@ -1,0 +1,34 @@
+      <% if items.empty? %>
+        <h5 style="margin-top: 50px;">該当する商品はありません</h5>
+      <% else %>
+      <h4 class="col-xs-2 text-center bg-info">商品一覧</h4>
+      <table class="table">
+        <thead>
+          <tr class="bg-info">
+            <th>商品ID</th>
+            <th>商品名</th>
+            <th>税抜価格</th>
+            <th>ジャンル</th>
+            <th>ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% items.each do |item| %>
+          <tr>
+            <td><%= item.id %></td>
+            <td>
+              <%= link_to admins_item_path(item) do%>
+                <%= item.name %>
+              <% end %>
+            </td>
+            <td><%= item.price %></td>
+            <td><%= item.genre.name %></td>
+            <td><%= item.is_active ? '販売中' : '販売停止中' %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <div class="text-center">
+        <%= paginate items %>
+      </div>
+      <% end %>
