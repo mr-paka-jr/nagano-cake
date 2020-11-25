@@ -1,4 +1,5 @@
 class Admins::ItemsController < Admins::BaseController
+  before_action :authenticate_admin!
 
   def new
     @item = Item.new
