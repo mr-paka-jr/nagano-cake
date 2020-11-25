@@ -1,18 +1,19 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-3">
-			<h3>ジャンル検索</h3>
-				<% @genres.each do |genre| %>
-				  <%= link_to genre.name,customers_items_path %>
-				<% end %>
+			<table class="table table-bordered">
+        <thead><th class="text-center">ジャンル検索</th></thead>
+        <tbody>
+  				<td>
+  				  <% @genres.each do |genre| %>
+  				    <p class="genre-search"><%= link_to genre.name,customers_items_path %><br></p>
+  				  <% end %>
+  				</td>
+				</tbody>
+			</table>
 		</div>
   	<div class="col-xs-9">
-	  	<h3 class="items-headline col-sm-3">
-		  商品一覧
-	  	<span>
-		  	(全<%= @active_items.count %>件)
-		  </span>
-		  </h3>
+  	  <div class="col-xs-12"><h3 class="items-index">商品一覧<span>(全<%= @active_items.count %>件)</span></h3></div><br>
 		  	<div class="items-image">
 			  	<% @items.each do |item| %>
 			  	  <% if item.genre.is_active == true %>
