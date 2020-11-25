@@ -16,6 +16,17 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+ @font-face {
+   font-family: 'Boku2-Bold';
+   src: font-url('Boku2-Bold.otf') format('truetype');
+   font-weight: normal;
+   font-style: normal;
+ }
+ 
+ body {
+  font-family: Times, 'Boku2-Bold';
+ }
+
  header {
   background-color: #EEEEEE;
  }
@@ -23,14 +34,18 @@
 .main-visual {
   background-image: image-url('cake.jpg');
   height: 200px;
-  width:  460px;
+  width:  cover;
   background-position: center;
 }
 
 .welcome {
- text-align: center;
- margin-top: 55px;
- background-color: #FFFAFA;
+  text-align: center;
+  font-size: 20px;
+  margin-top: 55px;
+  background: #e0eff3;
+  box-shadow: 0px 0px 0px 5px #e0eff3;
+  border: dashed 3px white;
+  padding: 0.2em 0.5em;
 }
 
 .d-flex {
@@ -46,4 +61,40 @@
 }
 .items-index {
  margin-bottom: 25px;
+}
+
+h1 {
+  background: #e0eff3;
+  box-shadow: 0px 0px 0px 5px #e0eff3;
+  border: dashed 3px white;
+  padding: 0.2em 0.5em;
+}
+
+.recommended {
+  margin-left: 60px;
+  background: #e0eff3;
+  box-shadow: 0px 0px 0px 5px #e0eff3;
+  border: dashed 3px white;
+  padding: 0.2em 0.5em;
+}
+
+.items-index {
+  background: #e0eff3;
+  box-shadow: 0px 0px 0px 5px #e0eff3;
+  border: dashed 3px white;
+  padding: 0.2em 0.5em;
+}
+
+h4 {
+  background: #e0eff3;
+  box-shadow: 0px 0px 0px 5px #e0eff3;
+  border: dashed 3px white;
+  padding: 0.2em 0.5em;
+}
+
+h3 {
+  background: #e0eff3;
+  box-shadow: 0px 0px 0px 5px #e0eff3;
+  border: dashed 3px white;
+  padding: 0.2em 0.5em;
 }
