@@ -1,33 +1,29 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-3">
-			<h3>ジャンル検索</h3>
-				<% @genres.each do |genre| %>
-				  <%= link_to genre.name,customers_items_path %>
-				<% end %>
+      <table class="table table-bordered">
+        <thead><th class="text-center">ジャンル検索</th></thead>
+        <tbody>
+  				<td><% @genres.each do |genre| %>
+  				  <p class="genre-search"><%= link_to genre.name,customers_items_path %><br></p>
+  				<% end %></td>
+				</tbody>
+			</table>
 		</div>
     <div class="col-xs-9 item-show">
+      <div class="col-xs-6">
       <%= attachment_image_tag(@item, :image, format: 'jpg', size: "300x220", fallback: "no_image.jpg" ) %>
-        <div class="field item-name">
-          <h2><%= @item.name %></h2>
-        </div>
-        <div class="field item-introduction">
-          <%= @item.introduction %>
-        </div>
-        <div class="field item-price">
-          <h4>¥ <%= addTax(@item.price) %>
-              <span class="tax">(税込)</span>
-          </h4>
-        </div>
-    </div>
-
-      <div class="field col-sm-3">
+      </div class="col-xs-6">
+      <div>
+        <div class="field item-name"><h2><%= @item.name %></h2></div><br>
+        <div class="field item-introduction"><%= @item.introduction %></div><br>
+        <div class="field item-price"><h4>¥ <%= addTax(@item.price) %><span class="tax">(税込)</span></h4></div><br>
         <% if @item.is_active == true %>
-            <%= form_for(@cart_item , url: customers_cart_items_path, method: :post) do |f| %>
-              <%= f.hidden_field :item_id, value: @item.id %>
-              <%= f.select :amount, options_for_select((1..10).to_a) %>
-              <%= f.submit "カートに入れる", class: "glyphicon glyphicon-shopping-cart btn btn-primary" %>
-            <% end %>
+          <%= form_for(@cart_item , url: customers_cart_items_path, method: :post) do |f| %>
+            <%= f.hidden_field :item_id, value: @item.id %>
+            <%= f.select :amount, options_for_select((1..10).to_a) %>
+            <%= f.submit "カートに入れる", class: "glyphicon glyphicon-shopping-cart btn btn-primary" %>
+          <% end %>
         <% else @item.is_active == false %>
           <h3>販売停止中</h3>
         <% end %>
