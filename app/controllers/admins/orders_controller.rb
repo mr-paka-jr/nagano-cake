@@ -10,6 +10,7 @@ class Admins::OrdersController < Admins::BaseController
     else
       @orders = Order.page(params[:page]).per(10)
     end
+    
   end
 
   def show
