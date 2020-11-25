@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-xs-3">
       <table class="table table-bordered">
-        <thead><th class="text-center">ジャンル検索</th></thead>
+        <thead><th class="bg-info text-center">ジャンル検索</th></thead>
         <tbody>
   				<td><% @genres.each do |genre| %>
   				  <p class="genre-search"><%= link_to genre.name,customers_items_path %><br></p>
@@ -25,7 +25,7 @@
             <%= f.submit "カートに入れる", class: "glyphicon glyphicon-shopping-cart btn btn-primary" %>
           <% end %>
         <% else @item.is_active == false %>
-          <h3>販売停止中</h3>
+          <h4>販売停止中</h4>
         <% end %>
       </div>
     </div>
