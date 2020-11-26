@@ -41,3 +41,4 @@ class Customers::ItemsController < ApplicationController
 		parmas.require(:item).permit(:image_id ,:name, :introduction, :price, :is_active)
 	end
 end
+
