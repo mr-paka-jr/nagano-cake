@@ -5,7 +5,7 @@
         <thead><th class="bg-info text-center">ジャンル検索</th></thead>
         <tbody>
   				<td><% @genres.each do |genre| %>
-  				  <p class="genre-search"><%= link_to genre.name,customers_items_path %><br></p>
+  				  <p class="genre-search"><%= link_to genre.name,customers_items_path(genre_id: genre.id) %><br></p>
   				<% end %></td>
 				</tbody>
 			</table>

@@ -19,7 +19,12 @@ class Customers::ItemsController < ApplicationController
       active_items << genre.items
     end
     @active_items = active_items.sum
-    @items = Item.page(params[:page]).per(10)
+    if params[:genre_id]
+		  @genre = Genre.find(params[:genre_id])
+		  @items = @genre.items.order(created_at: :desc).where(is_active: true).page(params[:page])
+    else
+      @items = Item.where(is_active: true).page(params[:page])
+    end
   end
 
   def show

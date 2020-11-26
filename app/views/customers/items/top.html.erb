@@ -1,45 +1,12 @@
 <div class="container">
 	<div class="row">
 		<div class="col-xs-3">
-<<<<<<< HEAD
-			<h4>ジャンル検索</h4>
-				<% @genres. each do |genre| %>
-				  <%= link_to genre.name,customers_items_path %>
-				<% end %>
-		</div>
-		<div class="main-visual col-xs-9">
-				<p class="welcome">
-				  ようこそ NaganoCakeへ！<br>
-				  このサイトは、ケーキ販売のECサイトになります。<br>
-				  会員でない方も商品の閲覧はできますが、<br>
-				  購入には会員登録が必要になります。<br>
-				</p>
-		</div>
-
-      <div class="top-recommended">
-			<h3 class="recommended">オススメ商品</h3>
-				<% @items.first(5). each do |item| %>
-				 <%= link_to customers_item_path(item.id), class: "btn-link", :style=>"color:#0099FF;" do %>
-        <div id="img_field" class="top-item">
-         <%= attachment_image_tag(item, :image, size: "180x130", fallback: "no_image.jpg") %>
-        </div>
-         <p class="top-items-name">
-          <%= item.name %>
-         </p>
-         <p class="top-items-price">
-          ¥ <%= addTax(item.price) %>
-         </p>
-       </div>
-       <% end %>
-       <% end %>
-			<%= link_to "もっと見る>", customers_items_path, class: "btn-link  pull-right" %>
-=======
 			<table class="table table-bordered">
 		        <thead><th class="bg-info text-center">ジャンル検索</th></thead>
 		        <tbody>
 	  				<td>
 	  					<% @genres.each do |genre| %>
-	  				  		<p class="genre-search"><%= link_to genre.name,customers_items_path %><br></p>
+	  				  		<p class="genre-search"><%= link_to genre.name,customers_items_path(genre_id: genre.id) %><br></p>
 	  					<% end %>
 	  				</td>
 				</tbody>
@@ -68,10 +35,9 @@
 						</div>
 						<% end %>
 					<% end %>
-				</div>	
+				</div>
 				<%= link_to "もっと見る>", customers_items_path, class: "btn-link  pull-right" %>
 			</div>
->>>>>>> origin/develop
 		</div>
  　</div>
 	</div>
