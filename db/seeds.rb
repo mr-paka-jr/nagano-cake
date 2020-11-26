@@ -15,10 +15,10 @@ Admin.create!(
  Customer.create!(
    email: "test#{n + 1}@test.com",
    password: "testtest#{n + 1}",
-   last_name: "山田",
-   first_name: "太郎#{n + 1}",
-   last_name_kana: "ヤマダ",
-   first_name_kana: "タロウ#{n + 1}",
+   last_name: "テスト",
+   first_name: "会員#{n + 1}",
+   last_name_kana: "テスト",
+   first_name_kana: "カイイン#{n + 1}",
    postal_code: "1500041",
    address: "東京都渋谷区神南１丁目１９−１１ パークウェースクエア2 4階",
    telephone_number: "0368694700",
@@ -27,11 +27,25 @@ end
 
  Genre.create!([{name: "ケーキ"}, {name: "和菓子"}, {name: "クッキー"}])
 
+
+4.times do |n|
  Item.create!(
   [
    {
-    genre_id: "#{n + 1}",
+    genre_id: 1,
     name: "商品#{n + 1}",
+    image: File.open("./app/assets/images/ケーキ#{n + 1}.jpg"),
     introduction: "商品#{n + 1}の説明文。" ,
-    price: "#{n * 120}" }])
-    
+    price: "#{n * 120 + 2500}" }])
+end
+
+3.times do |n|
+ Item.create!(
+  [
+   {
+    genre_id: 3,
+    name: "商品#{n + 5}",
+    image: File.open("./app/assets/images/クッキー#{n + 1}.jpg"),
+    introduction: "商品#{n + 5}の説明文。" ,
+    price: "#{n * 120 + 250}" }])
+end

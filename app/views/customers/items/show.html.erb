@@ -17,7 +17,7 @@
       <div>
         <div class="field item-name"><h2><%= @item.name %></h2></div><br>
         <div class="field item-introduction"><%= @item.introduction %></div><br>
-        <div class="field item-price"><h4>¥ <%= addTax(@item.price) %><span class="tax">(税込)</span></h4></div><br>
+        <div class="field item-price"><p class="item-price">¥ <%= addTax(@item.price) %><span class="tax">(税込)</span></p></div><br>
         <% if @item.is_active == true %>
           <%= form_for(@cart_item , url: customers_cart_items_path, method: :post) do |f| %>
             <%= f.hidden_field :item_id, value: @item.id %>
