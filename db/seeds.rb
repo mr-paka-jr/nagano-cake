@@ -19,7 +19,7 @@ Admin.create!(
    first_name: "太郎#{n + 1}",
    last_name_kana: "ヤマダ",
    first_name_kana: "タロウ#{n + 1}",
-   postal_code: "150-0041",
+   postal_code: "1500041",
    address: "東京都渋谷区神南１丁目１９−１１ パークウェースクエア2 4階",
    telephone_number: "0368694700",
  )
