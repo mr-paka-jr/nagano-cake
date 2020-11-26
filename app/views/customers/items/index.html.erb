@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-3">
+			<table class="table table-bordered">
+        <thead><th class="bg-info text-center">ジャンル検索</th></thead>
+        <tbody>
+  				<td>
+  				  <% @genres.each do |genre| %>
+  				    <p class="genre-search"><%= link_to genre.name,customers_items_path(genre_id: genre.id) %><br></p>
+  				  <% end %>
+  				</td>
+				</tbody>
+			</table>
+		</div>
+		<div class="col-xs-8">
+					<h3 class="items-index">
+					<% if params[:genre_id] %>
+					  <%= @genre.name %>一覧
+					<% else %>
+					   商品一覧
+					<% end %>
+					<span>
+						(全<%= @active_items.count %>件)
+					</span>
+					</h3>
+		</div>
+
+  	<div class="col-xs-9">
+		  	<div class="items-image">
+			  	<% @items.each do |item| %>
+			  	  <% if item.genre.is_active == true %>
+              <div class="items-container col-sm-3">
+                <%= link_to customers_item_path(item.id), class: "btn-link", :style=>"color:#0099FF;" do %>
+                  <div id="img_field" class="items">
+                    <%= attachment_image_tag(item, :image,format: 'jpg', size: "150x120", fallback: "no_image.jpg") %>
+                  </div>
+                  <p class="items-name">
+                    <%= item.name %>
+                  </p>
+                <% end %>
+              <% if item.is_active == true %>
+                <p>¥<%= item.price.to_s(:delimited) %></p>
+              <% elsif item.is_active == false %>
+                <p class="soldout">販売停止中</p>
+              <% end %>
+               </div>
+            <% end %>
+          <% end %>
+			  </div>
+			  <div class="text-center"><%= paginate(@items) %></div>
+    </div>
+  </div>
+</div>

@@ -10,6 +10,51 @@
   </head>
 
   <body>
+  <header class="navbar">
+    <div class="container">
+      <div class="row">
+        <nav class="nav navbar-nav navbar-left">
+          <%= link_to image_tag('logo.PNG',:width => "140",:height => "60", class: "pull-right"), root_path %>
+        </nav>
+        <div class="">
+          <nav>
+            <ul class="nav navbar-nav navbar-right">
+              <% if customer_signed_in? %>
+                <li><span>ようこそ、<%= current_customer.last_name %>さん！</span></li>
+                <li>
+                  <%= link_to "マイページ", customer_path(current_customer), class: "btn btn-outline-secondary" %>
+                </li>
+                <li>
+                  <%= link_to "商品一覧", customers_items_path, class: "btn btn-outline-secondary" %>
+                </li>
+                <li>
+                  <%= link_to "カート", '/customers/cart_items', class: "btn btn-outline-secondary" %>
+                </li>
+                <li>
+                  <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn btn-outline-secondary" %>
+                </li>
+              <% else %>
+                <li>
+                  <%= link_to "About", about_path, class: "btn btn-outline-success" %>
+                </li>
+                <li>
+                  <%= link_to "商品一覧", customers_items_path, class: "btn btn-outline-secondary" %>
+                </li>
+                <li>
+                  <%= link_to "新規登録", new_customer_registration_path, class: "btn btn-outline-secondary" %>
+                </li>
+                <li>
+                  <%= link_to "ログイン", new_customer_session_path, class: "btn btn-outline-secondary" %>
+                </li>
+              <% end %>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
     <%= yield %>
+    <footer class="footer">
+　　</footer>
   </body>
 </html>

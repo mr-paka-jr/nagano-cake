@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <h4 class="col-xs-3 text-center bg-info" style="margin: 0 0 30px 0;"><%= @customer.last_name + @customer.first_name %>さんの会員詳細</h4>
+    <table class="table" style="table-layout:fixed;">
+      <tbody>
+        <tr>
+          <th style="border: none; width:150px;">会員ID</th>
+          <td style="border: none;">
+            <%= @customer.id %>
+            <% if @customer.is_deleted == false %>
+              <span class="label label-primary">有効会員</span>
+            <% else %>
+              <span class="label label-danger">退会済み</span>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <th style="border: none;">氏名</th>
+          <td style="border: none;"><%= @customer.last_name + " " + @customer.first_name %></td>
+        </tr>
+        <tr>
+          <th style="border: none;">フリガナ</th>
+          <td style="border: none;"><%= @customer.last_name_kana + " " + @customer.first_name_kana %></td>
+        </tr>
+        <tr>
+          <th style="border: none;">郵便番号</th>
+          <td style="border: none;"><%= @customer.postal_code %></td>
+        </tr>
+        <tr>
+          <th style="border: none;">住所</th>
+          <td style="border: none;"><%= @customer.address %></td>
+        </tr>
+        <tr>
+          <th style="border: none;">電話番号</th>
+          <td style="border: none;"><%= @customer.telephone_number %></td>
+        </tr>
+        <tr>
+          <th style="border: none;">メールアドレス</th>
+          <td style="border: none;"><%= @customer.email%></td>
+        </tr>
+      </tbody>
+    </table>
+      <%= link_to "編集する", edit_admins_customer_path(@customer), class: "btn btn-primary", style: "margin-left: 10px;" %>
+      <%= link_to "注文履歴一覧を見る", admins_orders_path(order_sort: 2), class: "btn btn-primary" %>
+  </div>
+</div>
