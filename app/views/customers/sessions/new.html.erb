@@ -3,7 +3,7 @@
   <div class="col-xs-offset-1 col-xs-11">
     <h4 class="head-line col-sm-4">会員の方はこちらからログイン</h4>
 
-    <h3 class="text-danger"><%= flash[:error] %></h3>
+    <h5 class="text-danger"><%= flash[:error] %></h5><br>
     
 　　　<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   　　　　<div class="field form-group col-xs-8">
@@ -22,12 +22,12 @@
 
         <div class="field form-group col-xs-5">
          <%= f.submit "ログイン",class: "btn btn-primary pull-right btn-lg" %>
-        </div>
+        </div><br>
         <div class="col-xs-9">
-      　　<h4 class="head-line col-sm-4">登録がお済みではない方</h4></br>
-      　　<p class="new-link ">
+      　　<p class="head-line col-sm-12">登録がお済みではない方</p></br>
+      　　<span class="text-left new-link">
        　　 <%= link_to "こちら", new_registration_path(resource_name), data: {"turbolinks" => false}, class: "btn-link" %>から新規登録を行ってください。
-      　　</p>
+      　　</span>
     　　</div>
       <% end %>
   </div>

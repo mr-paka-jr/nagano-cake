@@ -41,7 +41,7 @@
 .welcome {
   text-align: center;
   font-size: 20px;
-  margin-top: 55px;
+  margin-top: 45px;
   background: #e0eff3;
   box-shadow: 0px 0px 0px 5px #e0eff3;
   border: dashed 3px white;
@@ -71,7 +71,7 @@ h1 {
 }
 
 .recommended {
-  margin-left: 60px;
+  margin: 40px,auto;
   background: #e0eff3;
   box-shadow: 0px 0px 0px 5px #e0eff3;
   border: dashed 3px white;
@@ -109,4 +109,20 @@ h3 {
 
 .item-price {
     font-size: 18px;
+}
+
+.head-line {
+    font-size: 22px;
+    font-style: bold;
+}
+
+.session-actions {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.error {
+    font-size: 22px;
+    font-color: red;
+    font-style: bold;   
 }
