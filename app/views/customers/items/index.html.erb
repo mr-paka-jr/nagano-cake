@@ -18,10 +18,8 @@
 					  <%= @genre.name %>一覧
 					<% else %>
 					   商品一覧
+					   <span>(全<%= @active_items.count %>件)</span>
 					<% end %>
-					<span>
-						(全<%= @active_items.count %>件)
-					</span>
 					</h3>
 		</div>
 
