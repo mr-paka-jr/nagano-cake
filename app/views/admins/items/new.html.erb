@@ -55,15 +55,17 @@
 
 
 <script>
+$(function() {
+    $('#item_image').on('change', function() {
+        var selectedFile = this.files[0];
+        var fileReader = new FileReader();
 
-$(function(){
-  $('#item_image').on('change', function (e) {
-    var reader = new FileReader();
-    reader.onload = function (e) {
-      $(".image").attr('src', e.target.result);
-    }
-    reader.readAsDataURL(e.target.files[0]);
-});
-});
+        fileReader.onload = function(event) {
+            var loadedImageUri = event.target.result;
+            $(".image").attr('src', loadedImageUri);
+        };
 
+        fileReader.readAsDataURL(selectedFile);
+    });
+});
 </script>
